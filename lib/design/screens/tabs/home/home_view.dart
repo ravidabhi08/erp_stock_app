@@ -9,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
+import '../../../../core/models/feature.dart';
 import '../../../../core/routes/app_pages.dart';
 import 'home_controller.dart';
 
@@ -68,7 +69,7 @@ class _DashboardTab extends StatelessWidget {
         SizedBox(height: 20),
         ContainerPlaceHolder(),
         GridViewPlaceHolder(height: 120, itemCount: 4, maxCrossAxisExtent: 175),
-        // GridViewPlaceHolder(height: 120, itemCount: 6, maxCrossAxisExtent: 115),
+        GridViewPlaceHolder(height: 120, itemCount: 6, maxCrossAxisExtent: 115),
         // ContainerPlaceHolder(),
         // ContainerPlaceHolder(),
       ],
@@ -87,7 +88,8 @@ class _DashboardTab extends StatelessWidget {
               const _GreetingsCard(),
               const SizedBox(height: 16),
               const _StockCard(),
-              // const SizedBox(height: 16),
+              const SizedBox(height: 16),
+              const _OptionsGridView(),
               // const _QuickActionsCard(),
               // const SizedBox(height: 16),
               // const _RecentTransactionsCard(),
@@ -154,6 +156,7 @@ class _GreetingsCard extends StatelessWidget {
   }
 }
 
+// ignore: unused_element
 class _DashboardCard extends StatelessWidget {
   const _DashboardCard();
 
@@ -233,9 +236,9 @@ class _StockCard extends StatelessWidget {
                     break;
                   case 1:
                     Get.toNamed(Routes.TOTALWAREHOUSES);
-                  //   break;
-                  // case 2:
-                  //   // Handle case 2
+                    break;
+                  case 2:
+                    Get.toNamed(Routes.TOTAL_ACTIVE_ITEMS);
                   //   break;
                   // case 3:
                   //   // Handle case 3
@@ -302,6 +305,170 @@ class _StockCard extends StatelessWidget {
               ),
             );
           },
+        );
+      },
+    );
+  }
+}
+
+class _OptionsGridView extends StatelessWidget {
+  const _OptionsGridView();
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<HomeController>(
+      builder: (controller) {
+        // final MainController mainController = controller.mainController;
+
+        controller.options = [
+          Feature(
+            route: Routes.PERSONAL_DETAILS,
+            type: FeatureEnum.expense,
+            icon: AppLinealColorIcons.expense,
+            name: "Expenses",
+          ),
+          Feature(
+            route: Routes.PERSONAL_DETAILS,
+            type: FeatureEnum.expense,
+            icon: AppLinealColorIcons.leave,
+            name: "Incomes",
+          ),
+          Feature(
+            route: Routes.PERSONAL_DETAILS,
+            type: FeatureEnum.payroll,
+            icon: AppLinealColorIcons.payroll,
+            name: TranslationController.td.payroll,
+          ),
+          Feature(
+            route: Routes.PERSONAL_DETAILS,
+            type: FeatureEnum.financialReports,
+            icon: AppLinealColorIcons.holiday,
+            name: "Reports",
+          ),
+          Feature(
+            route: Routes.PERSONAL_DETAILS,
+            type: FeatureEnum.income,
+            icon: AppLinealColorIcons.attendance,
+            name: "Tax & Invoicing",
+          ),
+          Feature(
+            route: Routes.PERSONAL_DETAILS,
+            type: FeatureEnum.transaction,
+            icon: AppLinealColorIcons.transaction,
+            name: "Account Statements",
+          ),
+          // Feature(
+          //   route: Routes.PERSONAL_DETAILS,
+          //   type: FeatureEnum.order,
+          //   icon: AppLinealColorIcons.order,
+          //   name: TranslationController.td.orders,
+          // ),
+          // Feature(
+          //   route: Routes.PERSONAL_DETAILS,
+          //   type: FeatureEnum.visit,
+          //   icon: AppLinealColorIcons.visit,
+          //   name: TranslationController.td.visit,
+          // ),
+          Feature(
+            type: FeatureEnum.payment,
+            route: Routes.PERSONAL_DETAILS,
+            icon: AppLinealColorIcons.paymentEntry,
+            name: TranslationController.td.payment,
+          ),
+          // Feature(
+          //   route: Routes.PERSONAL_DETAILS,
+          //   type: FeatureEnum.pettyExpense,
+          //   icon: AppLinealColorIcons.pettyExpense,
+          //   name: TranslationController.td.pettyExpenses,
+          // ),
+          // Feature(
+          //   route: Routes.CHANGE_PASSWORD,
+          //   type: FeatureEnum.timesheet,
+          //   icon: AppLinealColorIcons.timesheet,
+          //   name: TranslationController.td.timesheet,
+          // ),
+          // Feature(
+          //   route: Routes.CHANGE_PASSWORD,
+          //   type: FeatureEnum.issue,
+          //   icon: AppLinealColorIcons.issue,
+          //   name: TranslationController.td.issue,
+          // ),
+        ];
+
+        final List<Feature> options = controller.options;
+
+        return SizedBox(
+          // height: options.length <= 6 ? 250 : 350,
+          height: options.length <= 6 ? 250 : 350,
+          child: AlignedGridView.custom(
+            shrinkWrap: true,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            itemCount: options.length,
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            gridDelegate: const SliverSimpleGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 115,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              // final bool isPremiumExpired = (!mainController.showTransactions.value &&
+              //         options[index].route == Routes.TRANSACTIONS) ||
+              //     (!mainController.showOrders.value && options[index].route == Routes.ORDERS) ||
+              //     (!mainController.showVisit.value && options[index].route == Routes.VISITS) ||
+              //     (!mainController.showAccounting.value &&
+              //         options[index].route == Routes.PAYMENT_ENTRIES) ||
+              //     (!mainController.showPettyExpenses.value &&
+              //         options[index].route == Routes.PETTY_EXPENSES) ||
+              //     (!mainController.showTimesheet.value &&
+              //         options[index].route == Routes.TIMESHEET) ||
+              //     (!mainController.showIssue.value && options[index].route == Routes.ISSUE) ||
+              //     (!mainController.showQuotation.value &&
+              //         options[index].route == Routes.QUOTATIONS);
+
+              return Stack(
+                children: [
+                  SizedBox(
+                    width: 130,
+                    height: 110,
+                    child: InkWell(
+                      onTap: () async {
+                        // if (isPremiumExpired) {
+                        //   await DesignUtils.showPremiumFeatureSheet(context: context);
+                        // } else {
+                        //   Get.toNamed(options[index].route);
+                        // }
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          SvgPicture.asset(
+                            options[index].icon,
+                            colorFilter:
+                                context.theme.brightness == Brightness.dark
+                                    ? ColorFilter.mode(
+                                      context.colorScheme.onBackground,
+                                      BlendMode.srcIn,
+                                    )
+                                    : null,
+                          ),
+                          const SizedBox(height: 12),
+                          CText(
+                            options[index].name,
+                            maxLines: 1,
+                            textAlign: TextAlign.center,
+                            style: TextThemeX().text14.copyWith(letterSpacing: 0),
+                          ),
+                        ],
+                      ),
+                    ).defaultContainer(hM: 0),
+                  ),
+                  // if (isPremiumExpired)
+                  // Positioned(top: 8, right: 8, child: Image.asset(AppImages.diamond, width: 24)),
+                ],
+              ).listAnimation(position: index, delay: 50.ms);
+            },
+          ),
         );
       },
     );

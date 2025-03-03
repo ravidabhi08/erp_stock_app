@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
 
+import '../../../../core/models/feature.dart';
+
 class HomeController extends GetxController {
   // Define your variables and methods here
+  List<Feature> options = [];
 
   bool isLoading = true;
   @override

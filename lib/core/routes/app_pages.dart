@@ -5,6 +5,7 @@ import 'package:erp_stocks/design/screens/startup/login_view.dart';
 import 'package:erp_stocks/design/screens/startup/splash_view.dart';
 import 'package:erp_stocks/design/screens/tabs/home/notifications/notifications_controller.dart';
 import 'package:erp_stocks/design/screens/tabs/home/notifications/notifications_view.dart';
+import 'package:erp_stocks/design/screens/tabs/home/total_active_items_view.dart';
 import 'package:erp_stocks/design/screens/tabs/home/total_stock_value_controller.dart';
 import 'package:erp_stocks/design/screens/tabs/home/total_stock_value_view.dart';
 import 'package:erp_stocks/design/screens/tabs/home/total_warehouses_view.dart';
@@ -54,6 +55,7 @@ class AppPages {
         ),
       ),
       GetPage(name: _Paths.TOTALWAREHOUSES, page: () => const TotalWarehousesView()),
+      GetPage(name: _Paths.TOTAL_ACTIVE_ITEMS, page: () => const TotalActiveItemsView()),
       GetPage(
         name: _Paths.STOCKDETAILS,
         page: () => const StockDetails(),

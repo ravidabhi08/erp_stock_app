@@ -140,7 +140,7 @@ class _buildTotalStockValueCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            TextIndicator(status: "Yes", height: 32),
+            TextIndicator(status: "Enabled", height: 32),
           ],
         ),
       ],
