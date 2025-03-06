@@ -3,6 +3,7 @@ import 'package:erp_stocks/design/screens/main_view.dart';
 import 'package:erp_stocks/design/screens/startup/login_controller.dart';
 import 'package:erp_stocks/design/screens/startup/login_view.dart';
 import 'package:erp_stocks/design/screens/startup/splash_view.dart';
+import 'package:erp_stocks/design/screens/tabs/home/expenses/expenses_list_controller.dart';
 import 'package:erp_stocks/design/screens/tabs/home/notifications/notifications_controller.dart';
 import 'package:erp_stocks/design/screens/tabs/home/notifications/notifications_view.dart';
 import 'package:erp_stocks/design/screens/tabs/home/total_active_items_view.dart';
@@ -21,6 +22,8 @@ import 'package:erp_stocks/design/screens/tabs/stock/stock_details_controller.da
 import 'package:erp_stocks/design/screens/translation_controller.dart';
 import 'package:erp_stocks/design/screens/unknown_404_view.dart';
 import 'package:get/get.dart';
+
+import '../../design/screens/tabs/home/expenses/expenses_list_view.dart';
 
 part 'app_routes.dart';
 
@@ -56,6 +59,13 @@ class AppPages {
       ),
       GetPage(name: _Paths.TOTALWAREHOUSES, page: () => const TotalWarehousesView()),
       GetPage(name: _Paths.TOTAL_ACTIVE_ITEMS, page: () => const TotalActiveItemsView()),
+      GetPage(
+        name: _Paths.MY_EXPENSES,
+        page: () => const ExpensesListView(),
+        binding: BindingsBuilder(
+          () => Get.lazyPut<ExpensesListController>(() => ExpensesListController()),
+        ),
+      ),
       GetPage(
         name: _Paths.STOCKDETAILS,
         page: () => const StockDetails(),

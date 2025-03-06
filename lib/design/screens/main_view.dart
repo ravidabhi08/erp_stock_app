@@ -194,14 +194,14 @@ class _FloatingCircularButtonState extends State<_FloatingCircularButton> {
                     angle: 45 * math.pi / 180,
                     child: UnconstrainedBox(
                       child: SvgPicture.asset(
-                        AppIcons.scan,
+                        AppIcons.plusBold,
                         colorFilter: ColorFilter.mode(context.colorScheme.error, BlendMode.srcIn),
                       ),
                     ),
                   )
                   : UnconstrainedBox(
                     child: SvgPicture.asset(
-                      AppIcons.scan,
+                      AppIcons.plusBold,
                       colorFilter: ColorFilter.mode(context.colorScheme.onPrimary, BlendMode.srcIn),
                     ),
                   ),

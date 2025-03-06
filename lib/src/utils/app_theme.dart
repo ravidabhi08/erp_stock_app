@@ -49,7 +49,7 @@ extension ESSThemeTypeX on ESSThemeType {
       ESSThemeType.lemonade => ESSTheme._lemonade,
       ESSThemeType.synthwave => ESSTheme._synthwave,
       ESSThemeType.wireframe => ESSTheme._wireframe,
-      ESSThemeType.cyberpunk => ESSTheme._cyberpunk,
+      ESSThemeType.cyberpunk => ESSTheme._cyberTech,
       ESSThemeType.defaultTheme => ESSTheme._defaultTheme,
     };
   }
@@ -352,36 +352,36 @@ class ESSTheme with _$ESSTheme {
     );
   }
 
-  static ESSTheme get _cyberpunk {
+  static ESSTheme get _cyberTech {
     return const ESSTheme._(
-      brightness: Brightness.light,
+      brightness: Brightness.dark, // Dark cyberpunk aesthetic
       type: ESSThemeType.cyberpunk,
-      primary: Color(0xffF8F8F8),
-      onPrimary: Colors.white,
-      surface: Colors.white,
-      onSurface: Color(0xff8CA9C2),
-      primaryText: Color(0xff161502),
-      background: Color(0xffFFF349),
-      onBackground: Color(0xff8CA9C2),
+      primary: Color(0xFF00A8E8), // Electric Blue for futuristic appeal
+      onPrimary: Colors.black, // Contrast text on primary
+      surface: Color(0xFF1B1B2F), // Dark futuristic surface
+      onSurface: Color(0xFF00E676), // Neon Green for contrast text/icons
+      primaryText: Color(0xFFFFFFFF), // Electric Blue for text
+      background: Color(0xFF121212), // Deep black background
+      onBackground: Color(0xFFFFD700), // Golden Yellow for text on black
       fontFamily: _defaultFontFamily,
-      error: Color(0xffFF5761),
-      onError: Color(0xff010100),
-      divider: Color(0xffFE6597),
+      error: Color(0xFFFF1744), // Neon Red for errors
+      onError: Colors.white,
+      divider: Color(0xFF6C63FF), // Vibrant Neon Purple divider
       appColors: AppColors(
-        gradient1: Color(0xffFE6597),
-        gradient2: Color(0xffFF2D2D),
-        secondaryText: Color(0xff150051),
-        orangeLight: Color(0xFFFAD5A8), // ARGB (255, 250, 213, 168)
-        redLight: Color(0xFFFCE1E1), // ARGB (255, 252, 225, 225)
-        greenLight: Color(0xFFDAFCF5), // ARGB (255, 218, 252, 245)
-        red: _redColor,
-        gray: _greyColor,
-        green: _greenColor,
-        orange: _orangeColor,
-        purple: _purpleColor,
-        shadowColor: _defaultShadow,
-        iconColor: Color(0xff7D8E9A), // onBackground
-        strokeColor: Color(0xffD1DDE8), // Divider
+        gradient1: Color(0xFF6C63FF), // Neon Purple
+        gradient2: Color(0xFF00E676), // Neon Green
+        secondaryText: Color(0xFF00A8E8), // Electric Blue for secondary text
+        orangeLight: Color(0xFFFFC107), // Cyber Gold
+        redLight: Color(0xFFFF1744), // Neon Red
+        greenLight: Color(0xFF00E676), // Bright Neon Green
+        red: Color(0xFFFF3131), // Cyberpunk Red
+        gray: Color(0xFF6D6D6D), // Neutral Gray
+        green: Color(0xFF00E676), // Neon Green
+        orange: Color(0xFFFFA500), // Neon Orange
+        purple: Color(0xFF6C63FF), // Electric Purple
+        shadowColor: Color(0x8000A8E8), // Electric Blue Glow
+        iconColor: Color(0xFF00E676), // Neon Green for icons
+        strokeColor: Color(0xFF6C63FF), // Neon Purple for strokes
         snackbarTypeColors: _defaultSnackbarTypeColors,
       ),
     );

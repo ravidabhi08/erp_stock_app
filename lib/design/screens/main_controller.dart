@@ -32,19 +32,12 @@ class MainController extends GetxController {
     update();
   }
 
+  // bool shouldShowFeature(bool feature) {
+  //   return isPremium.isFalse || feature;
+  // }
+
   void onPageChanged(int value) {
     selectedTabIndex.value = value;
     update();
   }
-
-  //  bool shouldShowFeature(bool feature) {
-  //     return isPremium.isFalse || feature;
-  //   }
-
-  //   RxBool get isExpired => (validateSubscriptionModel?.expired == true).obs;
-  //   RxBool get isPremium => (validateSubscriptionModel?.isPremium == true).obs;
-  //   // Future<void> getTranslation() async {
-  //   await Get.find<TranslationController>()
-  //       .getTranslation(languageCode: GSServices.getLocale?.language);
-  // }
 }

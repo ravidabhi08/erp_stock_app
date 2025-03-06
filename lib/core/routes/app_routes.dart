@@ -16,6 +16,7 @@ abstract class Routes {
   static const TOTALSTOCKVALUEVIEW = _Paths.TOTALSTOCKVALUEVIEW;
   static const TOTALWAREHOUSES = _Paths.TOTALWAREHOUSES;
   static const TOTAL_ACTIVE_ITEMS = _Paths.TOTAL_ACTIVE_ITEMS;
+  static const MY_EXPENSES = _Paths.MY_EXPENSES;
 
   static const STOCKDETAILS = _Paths.STOCKDETAILS;
 
@@ -42,6 +43,7 @@ abstract class _Paths {
   static const TOTALSTOCKVALUEVIEW = '$HOME/total-stock-value-view';
   static const TOTALWAREHOUSES = '$HOME/total-warehouses-view';
   static const TOTAL_ACTIVE_ITEMS = '$HOME/total-active-items-view';
+  static const MY_EXPENSES = '$HOME/my-expenses';
 
   static const STOCKDETAILS = '$STOCK/stock-details';
 

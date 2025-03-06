@@ -89,6 +89,8 @@ class _DashboardTab extends StatelessWidget {
               const SizedBox(height: 16),
               const _StockCard(),
               const SizedBox(height: 16),
+              ViewAllRow(title: TranslationController.td.whatWouldYouLikeToDo),
+              const SizedBox(height: 16),
               const _OptionsGridView(),
               // const _QuickActionsCard(),
               // const SizedBox(height: 16),
@@ -318,11 +320,9 @@ class _OptionsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (controller) {
-        // final MainController mainController = controller.mainController;
-
         controller.options = [
           Feature(
-            route: Routes.PERSONAL_DETAILS,
+            route: Routes.MY_EXPENSES,
             type: FeatureEnum.expense,
             icon: AppLinealColorIcons.expense,
             name: "Expenses",
@@ -357,42 +357,6 @@ class _OptionsGridView extends StatelessWidget {
             icon: AppLinealColorIcons.transaction,
             name: "Account Statements",
           ),
-          // Feature(
-          //   route: Routes.PERSONAL_DETAILS,
-          //   type: FeatureEnum.order,
-          //   icon: AppLinealColorIcons.order,
-          //   name: TranslationController.td.orders,
-          // ),
-          // Feature(
-          //   route: Routes.PERSONAL_DETAILS,
-          //   type: FeatureEnum.visit,
-          //   icon: AppLinealColorIcons.visit,
-          //   name: TranslationController.td.visit,
-          // ),
-          Feature(
-            type: FeatureEnum.payment,
-            route: Routes.PERSONAL_DETAILS,
-            icon: AppLinealColorIcons.paymentEntry,
-            name: TranslationController.td.payment,
-          ),
-          // Feature(
-          //   route: Routes.PERSONAL_DETAILS,
-          //   type: FeatureEnum.pettyExpense,
-          //   icon: AppLinealColorIcons.pettyExpense,
-          //   name: TranslationController.td.pettyExpenses,
-          // ),
-          // Feature(
-          //   route: Routes.CHANGE_PASSWORD,
-          //   type: FeatureEnum.timesheet,
-          //   icon: AppLinealColorIcons.timesheet,
-          //   name: TranslationController.td.timesheet,
-          // ),
-          // Feature(
-          //   route: Routes.CHANGE_PASSWORD,
-          //   type: FeatureEnum.issue,
-          //   icon: AppLinealColorIcons.issue,
-          //   name: TranslationController.td.issue,
-          // ),
         ];
 
         final List<Feature> options = controller.options;
@@ -432,11 +396,7 @@ class _OptionsGridView extends StatelessWidget {
                     height: 110,
                     child: InkWell(
                       onTap: () async {
-                        // if (isPremiumExpired) {
-                        //   await DesignUtils.showPremiumFeatureSheet(context: context);
-                        // } else {
-                        //   Get.toNamed(options[index].route);
-                        // }
+                        Get.toNamed(options[index].route);
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
